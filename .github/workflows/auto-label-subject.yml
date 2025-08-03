@@ -20,7 +20,7 @@ jobs:
 
             // Find "Subject" field from GitHub Issue Form
             const match = body.match(/### Subject\s*\n(.*)/i);
-            core.info(`match value is`: match);
+            core.info(`match value is:`, match);
             if (!match || !match[1]) {
               core.info("No subject found in the issue form.");
               core.setOutput("label", "");
