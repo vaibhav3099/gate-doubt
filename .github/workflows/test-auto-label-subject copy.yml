@@ -1,4 +1,4 @@
-name: Auto Label from Subject
+name: Auto Label
 
 on:
   issues:
@@ -12,7 +12,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Add label to the issue
-        if: steps.extract.outputs.label != ''
         uses: actions-ecosystem/action-add-labels@v1
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
