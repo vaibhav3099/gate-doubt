@@ -53,7 +53,7 @@ jobs:
             };
             core.info(`after mapped: `, labelMap[subjectValue.toLowerCase()]);
             if (labelMap[subjectValue.toLowerCase()]) {
-              core.setOutput("label", labelMap[subjectValue]);
+              core.setOutput("label", labelMap[subjectValue.toLowerCase()]);
             } else {
               core.info(`No label mapping found for: ${subjectValue}`);
               core.setOutput("label", "");
