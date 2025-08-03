@@ -17,3 +17,7 @@ body:
         Explain your doubt clearly. You can drag & drop or paste images directly here. 
     validations:
       required: true
+  - type: markdown
+    attributes:
+      value: |
+        🚨 **NOTE:** PLEASE ADD THE APPROPRIATE `subject: ...` LABEL (e.g., `subject: TOC`, `subject: DBMS`, etc.) SO OTHERS CAN FILTER AND ANSWER DOUBTS EASILY.  # - type: input
