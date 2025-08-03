@@ -51,7 +51,7 @@ jobs:
                     "any suggestion"   : "Suggestion",
 
             };
-            core.info(`after mapped: `, labelMap[subjectValue.toLowerCase());
+            core.info(`after mapped: `, labelMap[subjectValue.toLowerCase()]);
             if (labelMap[subjectValue.toLowerCase()]) {
               core.setOutput("label", labelMap[subjectValue]);
             } else {
