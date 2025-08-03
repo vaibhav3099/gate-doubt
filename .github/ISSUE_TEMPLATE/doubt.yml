@@ -1,10 +1,32 @@
-name: Hello Doubt
-description: A test doubt submission form.
-title: "[TEST DOUBT] {{summary}}"
+name: Submit a Doubt
+description: Post your GATE doubt. Select subject, describe your question, and optionally include an image by dragging it into the description. The issue will be labeled with the chosen subject automatically.
+title: "[DOUBT] {{subject}}: {{short-description}}"
+labels: ["New Doubt"]
 body:
-  - type: input
-    id: summary
+  - type: dropdown
+    id: subject
     attributes:
-      label: Short summary of the doubt
+      label: Subject
+      options:
+        - TOC
+        - DBMS
+        - OS
+        - CN
+        - DS
+    validations:
+      required: true
+  - type: input
+    id: short-description
+    attributes:
+      label: Brief summary (used in title)
+      placeholder: e.g., “Is language regular if...?”
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Detailed Description
+      description: |
+        Explain your doubt clearly. You can drag & drop or paste images directly here; GitHub will host them. 
     validations:
       required: true
