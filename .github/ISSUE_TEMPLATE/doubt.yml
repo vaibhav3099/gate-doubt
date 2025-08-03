@@ -21,4 +21,4 @@ body:
   - type: markdown
     attributes:
       value: |
-        🚨 **NOTE:** PLEASE ADD THE APPROPRIATE LABEL (e.g., `subject: TOC`, `subject: DBMS`, etc.) SO OTHERS CAN FILTER AND ANSWER DOUBTS EASILY.
+        🚨 **NOTE:** PLEASE ADD THE APPROPRIATE LABEL 👇🏻 (e.g., `subject: TOC`, `subject: DBMS`, etc.) SO OTHERS CAN FILTER AND ANSWER DOUBTS EASILY.
