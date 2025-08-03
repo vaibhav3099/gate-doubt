@@ -1,6 +1,6 @@
 name: Submit a Doubt
 description: Post your GATE doubt. Describe your question, add labels, and optionally include an image by dragging it into the description.
-title: "Add a title"
+title: "."
 # labels: ["New Doubt"]
 body:
   - type: dropdown
