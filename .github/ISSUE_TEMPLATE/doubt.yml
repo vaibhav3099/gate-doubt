@@ -17,7 +17,7 @@ body:
     id: description
     attributes:
       label: Description
-      placholder: |
+    placholder: |
         Explain your doubt clearly. You can drag & drop or paste images directly here. 
     validations:
       required: true
