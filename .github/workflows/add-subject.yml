@@ -34,25 +34,25 @@ jobs:
             // LHS : Dropdown Values
             // RHS : Labels in the repo
             const labelMap = {
-                    "Discrete Mathematics": "Discrete Mathematics",
-                    "Linear Algebra" : "Linear Algebra",
-                    "Calculus"  : "Calculus",
-                    "Probability and Statistics" : "Probability and Statistics",
-                    "DL": "DL",
-                    "COA"  : "COA",
-                    "Programming and DS" : "Programming and DS",
-                    "Algorithms"  : "Algorithms",
-                    "TOC" : "TOC",
-                    "CD"  : "CD",
-                    "OS" : "OS",
-                    "DBMS"  : "DBMS",
-                    "CN"  : "CN",
-                    "Aptitude"  : "Aptitude",
-                    "Any Suggestion"   : "Suggestion",
+                    "discrete mathematics": "Discrete Mathematics",
+                    "linear algebra" : "Linear Algebra",
+                    "calculus"  : "Calculus",
+                    "probability and statistics" : "Probability and Statistics",
+                    "dl": "DL",
+                    "coa"  : "COA",
+                    "programming and ds" : "Programming and DS",
+                    "algorithms"  : "Algorithms",
+                    "toc" : "TOC",
+                    "cd"  : "CD",
+                    "os" : "OS",
+                    "dbms"  : "DBMS",
+                    "cn"  : "CN",
+                    "aptitude"  : "Aptitude",
+                    "any suggestion"   : "Suggestion",
 
             };
 
-            if (labelMap[subjectValue]) {
+            if (labelMap[subjectValue.toLowerCase()]) {
               core.setOutput("label", labelMap[subjectValue]);
             } else {
               core.info(`No label mapping found for: ${subjectValue}`);
