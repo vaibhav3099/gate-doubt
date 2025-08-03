@@ -1,6 +1,6 @@
 name: Submit a Doubt
 description: Post your GATE doubt. Select subject, describe your question, and optionally include an image by dragging it into the description. The issue will be labeled with the chosen subject automatically.
-title: "{{issue-title}}"
+title: " "
 # labels: ["New Doubt"]
 body:
   #   id: short-description
