@@ -6,7 +6,7 @@ body:
   - type: dropdown
     id: Subject
     attributes:
-      label: Select Subject
+      label: Subject
       options:
         - TOC
         - CD
