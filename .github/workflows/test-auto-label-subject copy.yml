@@ -1,0 +1,19 @@
+name: Auto Label from Subject
+
+on:
+  issues:
+    types: [opened, edited]
+
+permissions:
+  issues: write
+
+jobs:
+  add-label-from-subject:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Add label to the issue
+        if: steps.extract.outputs.label != ''
+        uses: actions-ecosystem/action-add-labels@v1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          labels: "Suggestion"
