@@ -3,13 +3,6 @@ description: Post your GATE doubt. Describe your question, add labels, and optio
 title: "Add a title"
 # labels: ["New Doubt"]
 body:
-
-  #   id: short-description
-  #   attributes:
-  #     label: Brief summary (used in title)
-  #     placeholder: e.g., “Is language regular if...?”
-  #   validations:
-  #     required: true
   - type: textarea
     id: description
     attributes:
@@ -18,7 +11,14 @@ body:
         Explain your doubt clearly. You can drag & drop or paste images directly here. 
     validations:
       required: true
-  - type: markdown
+  - type: dropdown
+    id: Subject
     attributes:
-      value: |
-        🚨 **NOTE:** PLEASE ADD THE APPROPRIATE LABEL 👇🏻 (e.g., `subject: TOC`, `subject: DBMS`, etc.) SO OTHERS CAN FILTER AND ANSWER DOUBTS EASILY.
+      label: Subject
+      description: Select Subject.
+      options:
+        - TOC
+        - CD
+        - CN
+    validations:
+      required: true
