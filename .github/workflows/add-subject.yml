@@ -34,9 +34,22 @@ jobs:
             // LHS : Dropdown Values
             // RHS : Labels in the repo
             const labelMap = {
-              "TOC": "TOC",
-              "CD": "CD",
-              "CN": "CN"
+                    "Discrete Mathematics": "Discrete Mathematics",
+                    "Linear Algebra" : "Linear Algebra",
+                    "Calculus"  : "Calculus",
+                    "Probability and Statistics" : "Probability and Statistics",
+                    "DL": "DL",
+                    "COA"  : "COA",
+                    "Programming and DS" : "Programming and DS",
+                    "Algorithms"  : "Algorithms",
+                    "TOC" : "TOC",
+                    "CD"  : "CD",
+                    "OS" : "OS",
+                    "DBMS"  : "DBMS",
+                    "CN"  : "CN",
+                    "Aptitude"  : "Aptitude",
+                    "Any Suggestion"   : "Suggestion",
+
             };
 
             if (labelMap[subjectValue]) {

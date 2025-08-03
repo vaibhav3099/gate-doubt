@@ -8,10 +8,21 @@ body:
     attributes:
       label: Subject
       options:
+        - "Discrete Mathematics"
+        - "Linear Algebra"
+        - "Calculus"
+        - "Probability and Statistics"
+        - "DL"
+        - "COA"
+        - "Programming and DS"
+        - "Algorithms"
         - "TOC"
-        - "CN"
         - "CD"
-
+        - "OS"
+        - "DBMS"
+        - "CN"
+        - "Aptitude"
+        - "Any Suggestion"
     validations:
       required: true
   - type: textarea
