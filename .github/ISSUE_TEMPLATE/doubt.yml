@@ -1,0 +1,10 @@
+name: Hello Doubt
+description: A test doubt submission form.
+title: "[TEST DOUBT] {{summary}}"
+body:
+  - type: input
+    id: summary
+    attributes:
+      label: Short summary of the doubt
+    validations:
+      required: true
