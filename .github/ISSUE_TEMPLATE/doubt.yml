@@ -8,9 +8,9 @@ body:
     attributes:
       label: Subject
       options:
-        - "#TOC"
-        - "#CN"
-        - "#CD"
+        - "TOC"
+        - "CN"
+        - "CD"
 
     validations:
       required: true
