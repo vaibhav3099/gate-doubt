@@ -7,7 +7,7 @@ body:
   - type: markdown
     attributes:
       value: |
-      🚨 **NOTE:** PLEASE ADD THE APPROPRIATE LABEL `subject: ...` LABEL (E.G., `subject: TOC`, `subject: DBMS`, ETC.) SO OTHERS CAN FILTER ANSWER DOUBT EASILY.
+      "🚨 **NOTE:** PLEASE ADD THE APPROPRIATE LABEL `subject: ...` LABEL (E.G., `subject: TOC`, `subject: DBMS`, ETC.) SO OTHERS CAN FILTER ANSWER DOUBT EASILY."
   # - type: input
   #   id: short-description
   #   attributes:
