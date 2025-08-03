@@ -1,0 +1,84 @@
+name: Auto Label from Subject Hashtags
+
+on:
+  issues:
+    types: [opened, edited]
+
+permissions:
+  issues: write
+
+jobs:
+  sync-labels:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Extract hashtags from issue body
+        id: extract
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const body = context.payload.issue.body || "";
+
+            // Try to match everything under "### Subject"
+            const match = body.match(/### Subject\s*\n([\s\S]*?)(?:\n###|$)/i);
+            if (!match || !match[1]) {
+              core.info("No Subject section found.");
+              core.setOutput("labels", "");
+              return;
+            }
+
+            // Extract hashtags from the subject section
+            const hashtags = match[1].match(/#[a-z0-9_-]+/gi) || [];
+
+            // Mapping from hashtag → actual GitHub label name
+            // LHS : Dropdown Values
+            // RHS : Labels in the repo
+            const labelMap = {
+              "toc": "TOC",
+              "cd": "CD",
+              "cn": "CN"
+            };
+
+            // Filter & map hashtags
+            const mappedLabels = hashtags
+              .map(tag => tag.slice(1).toLowerCase()) // remove #
+              .filter(tag => labelMap[tag])           // only keep if mapping exists
+              .map(tag => labelMap[tag]);             // convert to label name
+
+            // Remove duplicates
+            const uniqueLabels = [...new Set(mappedLabels)];
+
+            core.info(`Mapped labels: ${uniqueLabels.join(", ")}`);
+            core.setOutput("labels", uniqueLabels.join(","));
+
+      - name: Remove old subject labels
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const labelMap = {
+              "toc": "TOC",
+              "cd": "CD",
+              "cn": "CN"
+            };
+            # const allowedLabels = Object.values(labelMap).map(l => l.toLowerCase());
+            const allowedLabels = Object.values(labelMap)
+
+            const currentLabels = context.payload.issue.labels.map(l => l.name);
+
+            for (const label of currentLabels) {
+              if (allowedLabels.includes(label.toLowerCase())) {
+                await github.rest.issues.removeLabel({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: context.issue.number,
+                  name: label
+                });
+                core.info(`Removed old label: ${label}`);
+              }
+            }
+
+      - name: Add new labels
+        if: steps.extract.outputs.labels != ''
+        uses: actions-ecosystem/action-add-labels@v1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          labels: ${{ steps.extract.outputs.labels }}
