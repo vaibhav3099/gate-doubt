@@ -1,8 +1,13 @@
 name: Submit a Doubt
 description: Post your GATE doubt. Select subject, describe your question, and optionally include an image by dragging it into the description. The issue will be labeled with the chosen subject automatically.
-title: "Ask Doubt"
+title: ""
 # labels: ["New Doubt"]
 body:
+      
+  - type: markdown
+    attributes:
+      value: |
+      🚨 **NOTE:** PLEASE ADD THE APPROPRIATE LABEL `subject: ...` LABEL (E.G., `subject: TOC`, `subject: DBMS`, ETC.) SO OTHERS CAN FILTER ANSWER DOUBT EASILY.
   # - type: input
   #   id: short-description
   #   attributes:
@@ -18,8 +23,3 @@ body:
         Explain your doubt clearly. You can drag & drop or paste images directly here. 
     validations:
       required: true
-      
-  - type: markdown
-    attributes:
-      value: |
-        **Reminder:** Please add the appropriate `subject: ...` label (e.g., `subject: TOC`, `subject: DBMS`, etc.) so others can filter and answer easily.
