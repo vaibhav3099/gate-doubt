@@ -6,8 +6,7 @@ body:
   - type: dropdown
     id: Subject
     attributes:
-      label: Subject
-      description: Select Subject.
+      label: Select Subject
       options:
         - TOC
         - CD
@@ -18,7 +17,7 @@ body:
     id: description
     attributes:
       label: Description
-      description: |
+      placholder: |
         Explain your doubt clearly. You can drag & drop or paste images directly here. 
     validations:
       required: true
