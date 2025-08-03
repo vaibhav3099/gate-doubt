@@ -13,7 +13,7 @@ body:
         - CD
         - CN
     validations:
-    required: true
+      required: true
   - type: textarea
     id: description
     attributes:
