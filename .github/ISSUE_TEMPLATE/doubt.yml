@@ -3,18 +3,6 @@ description: Post your GATE doubt. Select subject, describe your question, and o
 title: "Ask Doubt"
 # labels: ["New Doubt"]
 body:
-  - type: dropdown
-    id: subject
-    attributes:
-      label: Subject
-      options:
-        - TOC
-        - DBMS
-        - OS
-        - CN
-        - DS
-    validations:
-      required: true
   # - type: input
   #   id: short-description
   #   attributes:
@@ -30,3 +18,8 @@ body:
         Explain your doubt clearly. You can drag & drop or paste images directly here. 
     validations:
       required: true
+      
+  - type: markdown
+    attributes:
+      value: |
+        **Reminder:** Please add the appropriate `subject: ...` label (e.g., `subject: TOC`, `subject: DBMS`, etc.) so others can filter and answer easily.
