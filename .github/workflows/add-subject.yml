@@ -1,0 +1,67 @@
+name: Auto Label from Subject
+
+on:
+  issues:
+    types: [opened]
+
+permissions:
+  issues: write
+
+jobs:
+  add-label-from-subject:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Extract subject from issue body
+        id: extract
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const body = context.payload.issue.body || "";
+
+            // Find "Subject" field from GitHub Issue Form
+            const match = body.match(/### Subject\s*\n(.*)/i);
+            core.info(`match value is:`, match[1]);
+            if (!match || !match[1]) {
+              core.info("No subject found in the issue form.");
+              core.setOutput("label", "");
+              return;
+            }
+
+            const subjectValue = match[1].trim();
+            core.info(`Detected subject: ${subjectValue}`);
+
+            // Mapping from dropdown value → label name in repo
+            // LHS : Dropdown Values
+            // RHS : Labels in the repo
+            const labelMap = {
+                    "discrete mathematics": "Discrete Mathematics",
+                    "linear algebra" : "Linear Algebra",
+                    "calculus"  : "Calculus",
+                    "probability and statistics" : "Probability and Statistics",
+                    "dl": "DL",
+                    "coa"  : "COA",
+                    "programming and ds" : "Programming and DS",
+                    "algorithms"  : "Algorithms",
+                    "toc" : "TOC",
+                    "cd"  : "CD",
+                    "os" : "OS",
+                    "dbms"  : "DBMS",
+                    "cn"  : "CN",
+                    "aptitude"  : "Aptitude",
+                    "any suggestion"   : "Suggestion",
+
+            };
+            core.info(`after mapped: `, labelMap[subjectValue.toLowerCase()]);
+            if (labelMap[subjectValue.toLowerCase()]) {
+              core.setOutput("label", labelMap[subjectValue.toLowerCase()]);
+            } else {
+              core.info(`No label mapping found for: ${subjectValue}`);
+              core.setOutput("label", "");
+            }
+
+      - name: Add label to the issue
+        if: steps.extract.outputs.label != ''
+        uses: actions-ecosystem/action-add-labels@v1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          labels: ${{ steps.extract.outputs.label }}
