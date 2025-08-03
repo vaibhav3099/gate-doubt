@@ -3,14 +3,6 @@ description: Post your GATE doubt. Describe your question, add labels, and optio
 title: "Add a title"
 # labels: ["New Doubt"]
 body:
-  - type: textarea
-    id: description
-    attributes:
-      label: Description
-      description: |
-        Explain your doubt clearly. You can drag & drop or paste images directly here. 
-    validations:
-      required: true
   - type: dropdown
     id: Subject
     attributes:
@@ -20,5 +12,13 @@ body:
         - TOC
         - CD
         - CN
+    validations:
+    required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: |
+        Explain your doubt clearly. You can drag & drop or paste images directly here. 
     validations:
       required: true
