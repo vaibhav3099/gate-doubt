@@ -7,8 +7,9 @@ body:
     id: Subject
     attributes:
       label: Subject
+      default: 0
       options:
-        - ""
+        - "None"
         - "Discrete Mathematics"
         - "Linear Algebra"
         - "Calculus"
