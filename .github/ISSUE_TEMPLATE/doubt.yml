@@ -1,10 +1,24 @@
-name: Hello Doubt
-description: A test doubt submission form.
-title: "[TEST DOUBT] {{summary}}"
+name: Submit a Doubt
+description: Post your GATE doubt. Describe your question, add labels, and optionally include an image by dragging it into the description.
+title: "Add a title"
+# labels: ["New Doubt"]
 body:
-  - type: input
-    id: summary
+
+  #   id: short-description
+  #   attributes:
+  #     label: Brief summary (used in title)
+  #     placeholder: e.g., “Is language regular if...?”
+  #   validations:
+  #     required: true
+  - type: textarea
+    id: description
     attributes:
-      label: Short summary of the doubt
+      label: Description
+      description: |
+        Explain your doubt clearly. You can drag & drop or paste images directly here. 
     validations:
       required: true
+  - type: markdown
+    attributes:
+      value: |
+        🚨 **NOTE:** PLEASE ADD THE APPROPRIATE LABEL 👇🏻 (e.g., `subject: TOC`, `subject: DBMS`, etc.) SO OTHERS CAN FILTER AND ANSWER DOUBTS EASILY.
