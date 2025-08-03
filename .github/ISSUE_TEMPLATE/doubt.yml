@@ -1,5 +1,5 @@
 name: Submit a Doubt
-description: Post your GATE doubt. Select subject, describe your question, and optionally include an image by dragging it into the description. The issue will be labeled with the chosen subject automatically.
+description: Post your GATE doubt. Describe your question, add labels, and optionally include an image by dragging it into the description.
 title: "Add a title"
 # labels: ["New Doubt"]
 body:
