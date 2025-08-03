@@ -8,9 +8,10 @@ body:
     attributes:
       label: Subject
       options:
-        - TOC
-        - CD
-        - CN
+        - "#TOC"
+        - "#CN"
+        - "#CD"
+
     validations:
       required: true
   - type: textarea
